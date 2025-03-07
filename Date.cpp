@@ -65,38 +65,27 @@ void Date::prevDate(){
     }
 }
 
-void Date::setYear(int year)
-{
+void Date::setYear(int year){
+    this->year = year;
 }
+int Date::getYear() const{    return year;}
 
-int Date::getYear() const
-{
-    return 0;
+void Date::setMonth(int month){
+    if (month >= 1 && month <= 12) this->month = month;
 }
+int Date::getMonth() const{    return month;}
 
-void Date::setMonth(int month)
-{
+void Date::setDay(int day){
+    if (day >= 1 && day <= monthDays()) this->day = day;
 }
-
-int Date::getMonth() const
-{
-    return 0;
-}
-
-void Date::setDay(int day)
-{
-}
-
-int Date::getDay() const
-{
-    return 0;
-}
+int Date::getDay() const{    return day;}
 
 void Date::showDate() const
 {
+    cout << day / 10 << day % 10 << "." << month / 10 << month % 10 << "." << year << endl;
 }
 
 bool Date::valid() const
 {
-    return false;
+    return month >= 1 && month <= 12 && day >= 1 && day <= monthDays();
 }
